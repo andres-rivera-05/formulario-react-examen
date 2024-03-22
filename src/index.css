@@ -1,0 +1,26 @@
+body{
+    background-color: #181818 !important;
+}
+
+form {
+    color: white;
+}
+
+input {
+    background: #222222 !important;
+    border-color: #323232 !important;
+}
+
+input::placeholder {
+    color: rgb(109, 109, 109) !important;
+}
+
+input {
+    color: rgb(245, 245, 245) !important;
+}
+
+.input-group-text {
+    background-color: #2c2b2b !important;
+    color: white !important;
+    border-color: #323232 !important;
+}
