@@ -14,8 +14,20 @@ function App() {
   const [Bueno, setBueno] = useState(null)
   const [MuyBueno, setMuyBueno] = useState(null)
   const [Sobresaliente, setSobresaliente] = useState(null)
+  
 
   const onClickOperacion = () => {
+
+    if(campoUno > 30){
+      alertaWarnig('Ups! la nota maxima aceptada es de 30', 'campo1')
+      return
+    } else if (campoDos > 30){
+      alertaWarnig('Ups! la nota maxima aceptada es de 30', 'campo2')
+      return
+    }else if(campoTres > 40){
+      alertaWarnig('Ups! la nota maxima aceptada es de 40', 'campo3')
+      return
+    }
 
     if(campoUno === ''){
       alertaWarnig('Completa el campo uno', 'campo1')
@@ -77,19 +89,19 @@ function App() {
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota uno max 30%' id="campo1" value={campoUno} onChange={(e) => setCampoUno(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota uno, max 30%' id="campo1" value={campoUno} onChange={(e) => setCampoUno(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota dos max 30%' id="campo2" value={campoDos} onChange={(e) => setCampoDos(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota dos, max 30%' id="campo2" value={campoDos} onChange={(e) => setCampoDos(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" min={0} max={40} placeholder='Ingrese la nota tres max 40%' id="campo3" value={campoTres} onChange={(e) => setCampoTres(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={40} placeholder='Ingrese la nota tres, max 40%' id="campo3" value={campoTres} onChange={(e) => setCampoTres(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <input type="number" className="form-control" value={resultado} readOnly placeholder='Resultado' id="campo-resultado" />
