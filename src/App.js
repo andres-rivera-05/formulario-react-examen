@@ -19,11 +19,16 @@ function App() {
 
     if(campoUno === ''){
       alertaWarnig('Completa el campo uno', 'campo1')
-    }else{
+    }else if(campoDos === ''){
+      alertaWarnig('Completa el campo dos', 'campo2')
+    }else if(campoTres === ''){
+      alertaWarnig('Completa el campo tres', 'campo3')
+    }
+    else{
       let n1 = parseInt(campoUno)
       let n2 = parseInt(campoDos)
       let n3 = parseInt(campoTres)
-      let resultados = (n1 + n2 + n3) / 3;
+      let resultados = parseInt((n1 + n2 + n3) / 3);
       setResultado(resultados)
     }
   }
@@ -40,15 +45,15 @@ function App() {
   }
 
   useEffect(() => {
-    if (resultado != '') {
-      if (resultado >= 0 && resultado < 59) {
+    if (resultado !== '') {
+      if (resultado >= 0 && resultado <= 59) {
         setEstado('Reprobado')
         setReprobado(true)
-      } else if (resultado >= 60 && resultado < 79) {
+      } else if (resultado >= 60 && resultado <=79) {
         setEstado('Bueno')
         setReprobado(false)
         setBueno(true)
-      } else if (resultado >= 80 && resultado < 90) {
+      } else if (resultado >= 80 && resultado <=90) {
         setEstado('Muy Bueno')
         setReprobado(false)
         setBueno(false)
