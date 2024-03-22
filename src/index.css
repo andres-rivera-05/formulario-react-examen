@@ -32,3 +32,13 @@ input {
     --bs-alert-border-color: #842029 !important;
     --bs-alert-link-color: #ffffff !important;
 }
+
+.ctn-form {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 13px;
+}
+
+input#campo-resultado {
+    background: #313132 !important;
+}

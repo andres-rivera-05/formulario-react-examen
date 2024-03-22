@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import { FaRedo } from "react-icons/fa";
+import { alertaWarnig } from './funcionesAlerta';
 
 function App() {
 
@@ -13,18 +15,28 @@ function App() {
   const [MuyBueno, setMuyBueno] = useState(null)
   const [Sobresaliente, setSobresaliente] = useState(null)
 
-  console.log("estado reprobado", Reprobado)
-  console.log("estado bueno", Bueno)
-  console.log(resultado)
-
-
-
   const onClickOperacion = () => {
-    let n1 = parseInt(campoUno)
-    let n2 = parseInt(campoDos)
-    let n3 = parseInt(campoTres)
-    let resultados = (n1 + n2 + n3) / 3;
-    setResultado(resultados)
+
+    if(campoUno === ''){
+      alertaWarnig('Completa el campo uno', 'campo1')
+    }else{
+      let n1 = parseInt(campoUno)
+      let n2 = parseInt(campoDos)
+      let n3 = parseInt(campoTres)
+      let resultados = (n1 + n2 + n3) / 3;
+      setResultado(resultados)
+    }
+  }
+
+  const Limpiar = () => {
+    setResultado('')
+    setCampoUno('')
+    setCampoDos('')
+    setCampoTres('')
+    setReprobado(false)
+    setBueno(false)
+    setMuyBueno(false)
+    setSobresaliente(false)
   }
 
   useEffect(() => {
@@ -52,7 +64,7 @@ function App() {
     <div className="App">
       <div className="container mt-5">
         <div className="row">
-          <div className="col-4 mx-auto">
+          <div className="col-4 mx-auto ctn-form">
             <form >
               <fieldset>
                 <legend className="text-center mb-3">Fomulario Notas</legend>
@@ -75,7 +87,7 @@ function App() {
                   <input type="number" className="form-control" placeholder='Ingrese la nota tres' id="campo3" value={campoTres} onChange={(e) => setCampoTres(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
-                  <input type="number" className="form-control" value={resultado} readOnly placeholder='Resultado' id="campo3" />
+                  <input type="number" className="form-control" value={resultado} readOnly placeholder='Resultado' id="campo-resultado" />
                 </div>
                 {
                   Reprobado ? (
@@ -91,7 +103,10 @@ function App() {
 
               </fieldset>
             </form>
-            <button className="btn btn-primary w-50" onClick={() => onClickOperacion()}>Calcular</button>
+            <div className="d-grid gap-2 d-md-flex">
+              <button className="btn btn-primary w-50" onClick={() => onClickOperacion()}>Calcular</button>
+              <button className="btn btn-success w-50" onClick={() => Limpiar()}><FaRedo /> Limpiar</button>
+            </div>     
           </div>
         </div>
       </div>
