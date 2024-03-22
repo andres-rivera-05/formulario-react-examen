@@ -28,7 +28,7 @@ function App() {
       let n1 = parseInt(campoUno)
       let n2 = parseInt(campoDos)
       let n3 = parseInt(campoTres)
-      let resultados = parseInt((n1 + n2 + n3) / 3);
+      let resultados = parseInt(n1 + n2 + n3);
       setResultado(resultados)
     }
   }
@@ -77,22 +77,25 @@ function App() {
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" placeholder='Ingrese la nota uno' id="campo1" value={campoUno} onChange={(e) => setCampoUno(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota uno max 30%' id="campo1" value={campoUno} onChange={(e) => setCampoUno(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" placeholder='Ingrese la nota dos' id="campo2" value={campoDos} onChange={(e) => setCampoDos(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={30} placeholder='Ingrese la nota dos max 30%' id="campo2" value={campoDos} onChange={(e) => setCampoDos(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <div className='input-group-text'>
                     <span className=" fa-solid fa-pen"></span>
                   </div>
-                  <input type="number" className="form-control" placeholder='Ingrese la nota tres' id="campo3" value={campoTres} onChange={(e) => setCampoTres(e.target.value)} />
+                  <input type="number" className="form-control" min={0} max={40} placeholder='Ingrese la nota tres max 40%' id="campo3" value={campoTres} onChange={(e) => setCampoTres(e.target.value)} />
                 </div>
                 <div className="mb-3 input-group">
                   <input type="number" className="form-control" value={resultado} readOnly placeholder='Resultado' id="campo-resultado" />
+                  <div className='input-group-text'>
+                    <span className=" fa-solid fa-percent"></span>
+                  </div>
                 </div>
                 {
                   Reprobado ? (
