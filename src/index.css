@@ -24,3 +24,11 @@ input {
     color: white !important;
     border-color: #323232 !important;
 }
+
+/*diseno alertas*/
+.alert-danger {
+    --bs-alert-color: #d19ba0 !important;
+    --bs-alert-bg: #2c0b0e !important;
+    --bs-alert-border-color: #842029 !important;
+    --bs-alert-link-color: #ffffff !important;
+}
